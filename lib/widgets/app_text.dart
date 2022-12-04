@@ -20,7 +20,7 @@ enum AppTextSize {
   extraLarge;
 
   double getSize() {
-    const normal = 14.0;
+    const normal = 16.0;
 
     switch (this) {
       case AppTextSize.smallest:
@@ -45,11 +45,13 @@ class AppText extends StatelessWidget {
     Key? key,
     this.appTextSize = AppTextSize.normal,
     this.color,
+    this.fontFamily,
   }) : super(key: key);
 
   final String data;
   final AppTextSize appTextSize;
   final Color? color;
+  final String? fontFamily;
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +60,7 @@ class AppText extends StatelessWidget {
       style: TextStyle(
         fontSize: appTextSize.getSize(),
         color: color ?? Colors.white,
+        fontFamily: fontFamily,
       ),
     );
   }

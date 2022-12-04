@@ -18,6 +18,7 @@ class StopwatchDisplay extends StatelessWidget {
         return AppText(
           value,
           appTextSize: AppTextSize.extraLarge,
+          fontFamily: 'Digital',
         );
       },
     );

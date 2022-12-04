@@ -21,6 +21,11 @@ class GameService {
   late final stopwatchDisplay = Observable<String?>(_format(_currentValueMs));
   final goalMs = Observable<int>(0);
 
+  // final start = Observable<DateTime>(DateTime.now());
+  // final end = Observable<DateTime>(DateTime.now());
+  var start = DateTime.now();
+  var end = DateTime.now();
+
   // Variables
   // Timer? _timer;
   Ticker? _ticker;
@@ -32,7 +37,7 @@ class GameService {
   // Main
   void _generateNewGoal() {
     _clear();
-    goalMs.value = 5000;
+    goalMs.value = 3000;
     state.value = GameState.readyToStart;
   }
 
@@ -59,9 +64,10 @@ class GameService {
   }
 
   void _start() {
+    start = DateTime.now();
     _ticker = Ticker(
       (elapsed) {
-        _currentValueMs = elapsed.inMilliseconds;
+        _currentValueMs = start.add(elapsed).difference(start).inMilliseconds;
         stopwatchDisplay.value = _format(_currentValueMs);
       },
     )..start();
@@ -69,15 +75,19 @@ class GameService {
   }
 
   void _stop() {
+    end = DateTime.now();
     _ticker?.stop();
     _ticker?.dispose();
     _ticker = null;
 
+    stopwatchDisplay.value = _format(difference);
+
     _checkResult();
   }
 
-  int get difference => _currentValueMs - goalMs.value;
-  String get differenceDisplay => _format(difference);
+  int get difference => end.difference(start).inMilliseconds;
+  int get deviation => difference - goalMs.value;
+  String get deviationDisplay => _format(deviation);
 
   void _checkResult() {
     state.value = GameState.result;

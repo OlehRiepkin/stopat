@@ -40,7 +40,7 @@ class GameStateResult extends StatelessWidget {
           Expanded(
             child: Center(
               child: AppText(
-                GameService().differenceDisplay,
+                GameService().deviationDisplay,
                 appTextSize: AppTextSize.larger,
                 color: getColor(),
               ),
@@ -52,7 +52,7 @@ class GameStateResult extends StatelessWidget {
   }
 
   Color getColor() {
-    final diff = GameService().difference;
+    final diff = GameService().deviation;
     if (diff > 0) {
       return Colors.green;
     }
