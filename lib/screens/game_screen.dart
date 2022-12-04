@@ -15,14 +15,26 @@ class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GestureDetector(
-        behavior: HitTestBehavior.translucent,
-        onTap: () {
-          GameService().actionTap();
-        },
-        child: const SafeArea(
-          child: SizedBox.expand(
-            child: GameStateBuilder(),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF004e92),
+              Color(0xFF000428),
+            ],
+          ),
+        ),
+        child: GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () {
+            GameService().actionTap();
+          },
+          child: const SafeArea(
+            child: SizedBox.expand(
+              child: GameStateBuilder(),
+            ),
           ),
         ),
       ),

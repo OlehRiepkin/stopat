@@ -57,7 +57,7 @@ class AppText extends StatelessWidget {
       data,
       style: TextStyle(
         fontSize: appTextSize.getSize(),
-        color: color,
+        color: color ?? Colors.white,
       ),
     );
   }
