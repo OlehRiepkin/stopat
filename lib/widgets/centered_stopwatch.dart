@@ -3,10 +3,10 @@ import 'package:stopat/widgets/stopwatch_display.dart';
 
 class CenteredStopwatch extends StatelessWidget {
   const CenteredStopwatch({
-    Key? key,
     this.top,
     this.bottom,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Widget? top;
   final Widget? bottom;

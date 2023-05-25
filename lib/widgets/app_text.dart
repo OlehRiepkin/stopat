@@ -42,11 +42,11 @@ enum AppTextSize {
 class AppText extends StatelessWidget {
   const AppText(
     this.data, {
-    Key? key,
     this.appTextSize = AppTextSize.normal,
     this.color,
     this.fontFamily,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String data;
   final AppTextSize appTextSize;

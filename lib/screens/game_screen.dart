@@ -4,8 +4,8 @@ import 'package:stopat/widgets/game_state/builder.dart';
 
 class GameScreen extends StatefulWidget {
   const GameScreen({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<GameScreen> createState() => _GameScreenState();

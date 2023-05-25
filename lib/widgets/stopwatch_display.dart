@@ -4,7 +4,9 @@ import 'package:stopat/services/game_service.dart';
 import 'package:stopat/widgets/app_text.dart';
 
 class StopwatchDisplay extends StatelessWidget {
-  const StopwatchDisplay({Key? key}) : super(key: key);
+  const StopwatchDisplay({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

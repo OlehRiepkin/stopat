@@ -5,8 +5,8 @@ import 'package:stopat/widgets/stopwatch_goal.dart';
 
 class GameStateReadyToStart extends StatelessWidget {
   const GameStateReadyToStart({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

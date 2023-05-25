@@ -10,11 +10,11 @@ enum GameState {
 
 class GameService {
   // Singleton
-  static final GameService _instance = GameService._internal();
   factory GameService() {
     return _instance;
   }
   GameService._internal();
+  static final GameService _instance = GameService._internal();
 
   // Obsrevable
   final state = Observable<GameState>(GameState.initial);

@@ -8,8 +8,8 @@ import 'package:stopat/widgets/game_state/state_result.dart';
 
 class GameStateBuilder extends StatelessWidget {
   const GameStateBuilder({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
