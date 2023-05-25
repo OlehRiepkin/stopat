@@ -10,7 +10,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Stop at',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
+        scaffoldBackgroundColor: const Color(0xFF000428),
       ),
       home: const GameScreen(),
     );

@@ -20,7 +20,10 @@ class GameStateResult extends StatelessWidget {
               onPressed: () {
                 GameService().state.value = GameState.initial;
               },
-              icon: const Icon(Icons.home),
+              icon: const Icon(
+                Icons.home,
+                color: Colors.white,
+              ),
             ),
           ),
           const Center(
