@@ -4,8 +4,8 @@ class MultipleObserver extends StatefulWidget {
   const MultipleObserver({
     required this.values,
     required this.builder,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final List<Observable> values;
 

@@ -5,8 +5,8 @@ import 'package:stopat/widgets/app_text.dart';
 
 class StopwatchGoal extends StatelessWidget {
   const StopwatchGoal({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

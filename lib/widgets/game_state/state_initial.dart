@@ -3,8 +3,8 @@ import 'package:stopat/widgets/app_text.dart';
 
 class GameStateInitial extends StatelessWidget {
   const GameStateInitial({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

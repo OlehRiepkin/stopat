@@ -9,8 +9,8 @@ class Observer<T> extends StatefulWidget {
   const Observer(
     this.value, {
     required this.builder,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Observable<T> value;
 
