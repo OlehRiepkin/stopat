@@ -1,33 +1,16 @@
-name: GitHub Pages
+name: Gh-Pages
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v2 # Only works with v2
+      - uses: subosito/flutter-action@v1
+      - uses: bluefireteam/flutter-gh-pages@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.0.1'
-
-      - name: Install Dependencies
-        run: flutter pub get
-
-      - name: Build Web
-        run: flutter build web
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/web
+          baseHref: /stopat/
