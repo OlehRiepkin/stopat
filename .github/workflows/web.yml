@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # Add this line to include the token
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
