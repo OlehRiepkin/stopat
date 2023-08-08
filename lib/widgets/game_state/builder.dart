@@ -6,6 +6,7 @@ import 'package:stopat/widgets/game_state/state_initial.dart';
 import 'package:stopat/widgets/game_state/state_ready_to_start.dart';
 import 'package:stopat/widgets/game_state/state_result.dart';
 
+@Deprecated('')
 class GameStateBuilder extends StatelessWidget {
   const GameStateBuilder({
     super.key,

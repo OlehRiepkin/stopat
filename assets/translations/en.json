@@ -1,0 +1,22 @@
+{
+    "common": {
+        "appName": "Time challenge"
+    },
+    "enums": {
+        "difficulty": {
+            "easy": "easy",
+            "normal": "normal",
+            "hard": "hard"
+        }
+    },
+    "screen": {
+        "home": {
+            "btnDaily": "daily",
+            "btnClassic": "classic",
+            "btnCustom": "custom"
+        },
+        "game": {
+            "goalDesc": "your goal"
+        }
+    }
+}

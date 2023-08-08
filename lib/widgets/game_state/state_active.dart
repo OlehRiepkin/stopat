@@ -3,6 +3,7 @@ import 'package:stopat/widgets/app_text.dart';
 import 'package:stopat/widgets/centered_stopwatch.dart';
 import 'package:stopat/widgets/stopwatch_goal.dart';
 
+@Deprecated('')
 class GameStateActive extends StatelessWidget {
   const GameStateActive({
     super.key,

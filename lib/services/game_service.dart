@@ -1,6 +1,7 @@
 import 'package:flutter/scheduler.dart';
 import 'package:stopat/observable/observable.dart';
 
+@Deprecated('')
 enum GameState {
   initial,
   readyToStart,
@@ -8,6 +9,7 @@ enum GameState {
   result,
 }
 
+@Deprecated('')
 class GameService {
   // Singleton
   factory GameService() {

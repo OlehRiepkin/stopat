@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stopat/utils/scale_helper/flutter_scale_helper.dart';
 
+@Deprecated('')
 enum AppTextSize {
   /// 50%
   smallest,
@@ -39,6 +41,7 @@ enum AppTextSize {
   }
 }
 
+@Deprecated('')
 class AppText extends StatelessWidget {
   const AppText(
     this.data, {
@@ -58,7 +61,7 @@ class AppText extends StatelessWidget {
     return Text(
       data,
       style: TextStyle(
-        fontSize: appTextSize.getSize(),
+        fontSize: appTextSize.getSize().w(context),
         color: color ?? Colors.white,
         fontFamily: fontFamily,
       ),

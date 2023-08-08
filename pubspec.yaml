@@ -20,7 +20,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '3.0.2'
+  sdk: '>=3.0.5 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -30,9 +30,13 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
+  easy_localization: ^3.0.2
   flutter:
     sdk: flutter
-  linter:
+  flutter_riverpod: ^2.3.6
+  linter:  
+  logger: ^1.4.0
+  shared_preferences: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -49,10 +53,24 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - assets/translations/
+
   fonts:
     - family: Digital
       fonts:
         - asset: assets/fonts/digital7.ttf
+    - family: Raleway
+      fonts:
+        - asset: assets/fonts/Raleway-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Raleway-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Raleway-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Raleway-Bold.ttf
+          weight: 700
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:
