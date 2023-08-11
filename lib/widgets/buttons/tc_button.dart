@@ -19,7 +19,6 @@ class TCButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('render button');
     final height = this.height.w(context);
     final width = this.width.w(context);
 
@@ -30,23 +29,18 @@ class TCButton extends StatelessWidget {
         props: TouchableOpacityProps(
           onTap: onTap,
           child: Container(
-            margin: const EdgeInsets.all(1),
             decoration: BoxDecoration(
               border: Border.all(
-                color: TCColors.of(context).buttonBorder,
+                color: TCColors.of(context).buttonBorder.withOpacity(0.9),
               ),
-              // boxShadow: [
-              //   BoxShadow(
-              //     color: TCColors.of(context).buttonText.withOpacity(0.15),
-              //     blurRadius: 10,
-              //     spreadRadius: 5,
-              //   ),
-              //   BoxShadow(
-              //     color: TCColors.of(context).buttonBorder,
-              //     blurRadius: 20,
-              //     spreadRadius: -10,
-              //   ),
-              // ],
+              borderRadius: BorderRadius.circular(6),
+              boxShadow: [
+                BoxShadow(
+                  color: TCColors.of(context).buttonShadow.withOpacity(0.2),
+                  blurRadius: 10,
+                  spreadRadius: 2,
+                ),                
+              ],
             ),
             child: Center(
               child: Text(

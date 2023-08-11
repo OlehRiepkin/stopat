@@ -7,6 +7,7 @@ class AllColors {
   static const black = Color(0xFF000000);
 
   static const darkPrimary = Color(0xFF00001e);
+  static const cyan = Color(0xFF00ffff);
 
   static const c0 = Color(0xFF000066);
   static const c1 = Color(0xFF001247);
@@ -21,6 +22,7 @@ class AppThemeData {
         const TCColors(
           buttonText: AllColors.c0,
           buttonBorder: AllColors.c2,
+          buttonShadow: AllColors.cyan,
           frame: AllColors.c1,
           iconButton: AllColors.c0,
         ),
@@ -35,6 +37,7 @@ class AppThemeData {
         const TCColors(
           buttonText: AllColors.white,
           buttonBorder: AllColors.white,
+          buttonShadow: AllColors.cyan,
           frame: AllColors.c3,
           iconButton: AllColors.white,
         ),
