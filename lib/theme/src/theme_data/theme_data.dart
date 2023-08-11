@@ -6,26 +6,12 @@ class AllColors {
   static const white = Color(0xFFFFFFFF);
   static const black = Color(0xFF000000);
 
-  static const midnightBlue = Color(0xFF145DA0);
-  static const darkBlue = Color(0xFF0C2D48);
-  static const blue = Color(0xFF2E8BC0);
-  static const babyBlue = Color(0xFFB1D4E0);
+  static const darkPrimary = Color(0xFF00001e);
 
-  static const c0 = Color(0xFF03045E);
-  static const c1 = Color(0xFF023E8A);
-  static const c2 = Color(0xFF0077B6);
-  static const c3 = Color(0xFF0096C7);
-  static const c4 = Color(0xFF00B4D8);
-  static const c5 = Color(0xFF48CAE4);
-  static const c6 = Color(0xFF90E0EF);
-  static const c7 = Color(0xFFADE8F4);
-  static const c8 = Color(0xFFCAF0F8);
-
-  static const x0 = Color(0xFF00296B);
-  static const x1 = Color(0xFF003F88);
-  static const x2 = Color(0xFF00509D);
-  static const x3 = Color(0xFFFDC500);
-  static const x4 = Color(0xFFFFD500);
+  static const c0 = Color(0xFF000066);
+  static const c1 = Color(0xFF001247);
+  static const c2 = Color(0xFFbfcfff);
+  static const c3 = Color(0xFF809fff);
 }
 
 class AppThemeData {
@@ -33,13 +19,13 @@ class AppThemeData {
     return ThemeData.light().copyWith(
       extensions: <ThemeExtension<dynamic>>[
         const TCColors(
-          buttonText: AllColors.x0,
-          buttonBorder: AllColors.x2,
-          frame: AllColors.x1,
-          iconButton: AllColors.x0,
+          buttonText: AllColors.c0,
+          buttonBorder: AllColors.c2,
+          frame: AllColors.c1,
+          iconButton: AllColors.c0,
         ),
       ],
-      scaffoldBackgroundColor: AllColors.white,
+      scaffoldBackgroundColor: const Color(0xFFFFFFFF),
     );
   }
 
@@ -47,13 +33,13 @@ class AppThemeData {
     return ThemeData.dark().copyWith(
       extensions: <ThemeExtension<dynamic>>[
         const TCColors(
-          buttonText: AllColors.x3,
-          buttonBorder: AllColors.x1,
-          frame: AllColors.x4,
-          iconButton: AllColors.x2,
+          buttonText: AllColors.white,
+          buttonBorder: AllColors.white,
+          frame: AllColors.c3,
+          iconButton: AllColors.white,
         ),
       ],
-      scaffoldBackgroundColor: AllColors.black,
+      scaffoldBackgroundColor: AllColors.darkPrimary,
     );
   }
 }

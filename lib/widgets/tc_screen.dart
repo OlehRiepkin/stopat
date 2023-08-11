@@ -18,23 +18,16 @@ class TCScreen extends StatelessWidget {
     final headerProps = this.headerProps;
 
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(
-          16.w(context),
-        ),
-        child: TCFrame(
-          child: Column(
-            children: [
-              if (headerProps != null)
-                TCScreenHeader(
-                  props: headerProps,
-                ),
-              Expanded(
-                child: child,
-              ),
-            ],
+      body: Column(
+        children: [
+          if (headerProps != null)
+            TCScreenHeader(
+              props: headerProps,
+            ),
+          Expanded(
+            child: child,
           ),
-        ),
+        ],
       ),
     );
   }

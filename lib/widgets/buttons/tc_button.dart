@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:stopat/theme/theme.dart';
 import 'package:stopat/utils/scale_helper/flutter_scale_helper.dart';
 import 'package:stopat/widgets/buttons/touchable_opacity.dart';
-import 'package:stopat/widgets/tc_frame.dart';
 
 class TCButton extends StatelessWidget {
   const TCButton({
@@ -20,6 +19,7 @@ class TCButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('render button');
     final height = this.height.w(context);
     final width = this.width.w(context);
 
@@ -29,37 +29,32 @@ class TCButton extends StatelessWidget {
       child: TouchableOpacity(
         props: TouchableOpacityProps(
           onTap: onTap,
-          child: TCFrame(
-            color: TCColors.of(context).frame,
-            horizontalLineWidth: 32.w(context),
-            verticalLineHeight: 8.w(context),
-            child: Container(
-              margin: const EdgeInsets.all(1),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: TCColors.of(context).buttonBorder,
-                ),
-                // boxShadow: [
-                //   BoxShadow(
-                //     color: TCColors.of(context).buttonText.withOpacity(0.15),
-                //     blurRadius: 10,
-                //     spreadRadius: 5,
-                //   ),
-                //   BoxShadow(
-                //     color: TCColors.of(context).buttonBorder,
-                //     blurRadius: 20,
-                //     spreadRadius: -10,
-                //   ),
-                // ],
+          child: Container(
+            margin: const EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: TCColors.of(context).buttonBorder,
               ),
-              child: Center(
-                child: Text(
-                  title,
-                  style: TextStyle(
-                    color: TCColors.of(context).buttonText,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: 'Raleway',
-                  ),
+              // boxShadow: [
+              //   BoxShadow(
+              //     color: TCColors.of(context).buttonText.withOpacity(0.15),
+              //     blurRadius: 10,
+              //     spreadRadius: 5,
+              //   ),
+              //   BoxShadow(
+              //     color: TCColors.of(context).buttonBorder,
+              //     blurRadius: 20,
+              //     spreadRadius: -10,
+              //   ),
+              // ],
+            ),
+            child: Center(
+              child: Text(
+                title,
+                style: TextStyle(
+                  color: TCColors.of(context).buttonText,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Raleway',
                 ),
               ),
             ),
