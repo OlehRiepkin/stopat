@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:stopat/screens/home/setup_game/modal.dart';
 import 'package:stopat/screens/settings/screen.dart';
 import 'package:stopat/screens/setup_game.dart/screen.dart';
 import 'package:stopat/utils/localization.dart';
 import 'package:stopat/utils/scale_helper/flutter_scale_helper.dart';
 import 'package:stopat/widgets/buttons/tc_button.dart';
 import 'package:stopat/widgets/buttons/tc_icon_button.dart';
+import 'package:stopat/widgets/clock_lottie.dart';
 import 'package:stopat/widgets/tc_screen.dart';
 import 'package:stopat/widgets/tc_screen_header.dart';
 
@@ -37,12 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           const Spacer(),
-          Lottie.asset(
-            'assets/lottie/clock_anim_white.json',
-            fit: BoxFit.contain,
-            width: 180.w(context),
-            height: 180.w(context),
-          ),
+          const ClockLottieView(),
           const Spacer(),
           TCButton(
             title: ls(LK.screen_home_btnDaily),
@@ -71,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void _onDailyTap() {}
 
   void _onClassicTap() {
-    SetupGameScreen.show(context);
+    SetupGameScreen.show(widget, context);
   }
 
   void _onCustomTap() {}

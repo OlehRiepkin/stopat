@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stopat/screens/game/screen.dart';
-import 'package:stopat/screens/home/setup_game/difficlty_selector.dart';
+import 'package:stopat/screens/setup_game.dart/difficlty_selector.dart';
 import 'package:stopat/utils/localization.dart';
 import 'package:stopat/utils/scale_helper/flutter_scale_helper.dart';
 import 'package:stopat/widgets/buttons/tc_button.dart';
@@ -16,28 +16,11 @@ class SetupGameScreen extends StatefulWidget {
   @override
   State<SetupGameScreen> createState() => _SetupGameScreenState();
 
-  static void show(BuildContext context) {
+  static void show(Widget parent, BuildContext context) {
     Navigator.of(context).push(
-      PageRouteBuilder(
-        pageBuilder: (
-          BuildContext context,
-          Animation<double> animation,
-          Animation<double> secondaryAnimation,
-        ) {
+      MaterialPageRoute(
+        builder: (context) {
           return const SetupGameScreen();
-        },
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          final tween = Tween(
-            begin: const Offset(0.0, 1.0),
-            end: Offset.zero,
-          ).chain(
-            CurveTween(curve: Curves.ease),
-          );
-
-          return SlideTransition(
-            position: animation.drive(tween),
-            child: child,
-          );
         },
       ),
     );
@@ -76,6 +59,6 @@ class _SetupGameScreenState extends State<SetupGameScreen> {
   }
 
   void _onStartTap() {
-    GameScreen.show(context);
+    GameScreen.show(widget, context);
   }
 }

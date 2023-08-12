@@ -27,7 +27,8 @@ class AppThemeData {
           iconButton: AllColors.c0,
         ),
       ],
-      scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+      // scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+      scaffoldBackgroundColor: Colors.transparent,
     );
   }
 
@@ -42,7 +43,8 @@ class AppThemeData {
           iconButton: AllColors.white,
         ),
       ],
-      scaffoldBackgroundColor: AllColors.darkPrimary,
+      // scaffoldBackgroundColor: AllColors.darkPrimary,
+      scaffoldBackgroundColor: Colors.transparent,
     );
   }
 }
