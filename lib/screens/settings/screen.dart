@@ -21,15 +21,8 @@ class SettingsScreen extends StatefulWidget {
           return const SettingsScreen();
         },
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          final tween = Tween(
-            begin: const Offset(0.0, 1.0),
-            end: Offset.zero,
-          ).chain(
-            CurveTween(curve: Curves.ease),
-          );
-
-          return SlideTransition(
-            position: animation.drive(tween),
+          return FadeTransition(
+            opacity: animation,
             child: child,
           );
         },

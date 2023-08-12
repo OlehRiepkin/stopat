@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:stopat/screens/settings/screen.dart';
 import 'package:stopat/screens/setup_game.dart/screen.dart';
 import 'package:stopat/utils/localization.dart';
@@ -39,20 +38,20 @@ class _HomeScreenState extends State<HomeScreen> {
           const Spacer(),
           const ClockLottieView(),
           const Spacer(),
-          TCButton(
-            title: ls(LK.screen_home_btnDaily),
-            onTap: _onDailyTap,
-          ),
-          SizedBox(height: 16.w(context)),
+          // TCButton(
+          //   title: ls(LK.screen_home_btnDaily),
+          //   onTap: _onDailyTap,
+          // ),
+          // SizedBox(height: 16.w(context)),
           TCButton(
             title: ls(LK.screen_home_btnClassic),
             onTap: _onClassicTap,
           ),
-          SizedBox(height: 16.w(context)),
-          TCButton(
-            title: ls(LK.screen_home_btnCustom),
-            onTap: _onCustomTap,
-          ),
+          // SizedBox(height: 16.w(context)),
+          // TCButton(
+          //   title: ls(LK.screen_home_btnCustom),
+          //   onTap: _onCustomTap,
+          // ),
           SizedBox(height: 128.h(context)),
         ],
       ),
@@ -66,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void _onDailyTap() {}
 
   void _onClassicTap() {
-    SetupGameScreen.show(widget, context);
+    SetupGameScreen.show(context);
   }
 
   void _onCustomTap() {}

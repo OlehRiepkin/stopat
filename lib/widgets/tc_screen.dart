@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stopat/widgets/background.dart';
 import 'package:stopat/widgets/tc_screen_header.dart';
 
 class TCScreen extends StatelessWidget {
@@ -17,18 +16,16 @@ class TCScreen extends StatelessWidget {
     final headerProps = this.headerProps;
 
     return Scaffold(
-      body: TCBackground(
-        child: Column(
-          children: [
-            if (headerProps != null)
-              TCScreenHeader(
-                props: headerProps,
-              ),
-            Expanded(
-              child: child,
+      body: Column(
+        children: [
+          if (headerProps != null)
+            TCScreenHeader(
+              props: headerProps,
             ),
-          ],
-        ),
+          Expanded(
+            child: child,
+          ),
+        ],
       ),
     );
   }

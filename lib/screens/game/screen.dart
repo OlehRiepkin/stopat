@@ -14,11 +14,21 @@ class GameScreen extends StatefulWidget {
   @override
   State<GameScreen> createState() => _GameScreenState();
 
-  static void show(Widget parent, BuildContext context) {
+  static void show(BuildContext context) {
     Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) {
+      PageRouteBuilder(
+        pageBuilder: (
+          BuildContext context,
+          Animation<double> animation,
+          Animation<double> secondaryAnimation,
+        ) {
           return const GameScreen();
+        },
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(
+            opacity: animation,
+            child: child,
+          );
         },
       ),
     );
@@ -55,7 +65,6 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void _onCloseTap() {
-    Navigator.of(context).pop();
-    // Navigator.of(context).popUntil((route) => route.isFirst);
+    Navigator.of(context).popUntil((route) => route.isFirst);
   }
 }

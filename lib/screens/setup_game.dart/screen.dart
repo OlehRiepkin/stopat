@@ -16,11 +16,21 @@ class SetupGameScreen extends StatefulWidget {
   @override
   State<SetupGameScreen> createState() => _SetupGameScreenState();
 
-  static void show(Widget parent, BuildContext context) {
+  static void show(BuildContext context) {
     Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) {
+      PageRouteBuilder(
+        pageBuilder: (
+          BuildContext context,
+          Animation<double> animation,
+          Animation<double> secondaryAnimation,
+        ) {
           return const SetupGameScreen();
+        },
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(
+            opacity: animation,
+            child: child,
+          );
         },
       ),
     );
@@ -59,6 +69,6 @@ class _SetupGameScreenState extends State<SetupGameScreen> {
   }
 
   void _onStartTap() {
-    GameScreen.show(widget, context);
+    GameScreen.show(context);
   }
 }
