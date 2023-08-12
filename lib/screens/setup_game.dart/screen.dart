@@ -3,6 +3,7 @@ import 'package:stopat/screens/game/screen.dart';
 import 'package:stopat/screens/setup_game.dart/difficlty_selector.dart';
 import 'package:stopat/utils/localization.dart';
 import 'package:stopat/utils/scale_helper/flutter_scale_helper.dart';
+import 'package:stopat/widgets/bottom_spacer.dart';
 import 'package:stopat/widgets/buttons/tc_button.dart';
 import 'package:stopat/widgets/buttons/tc_icon_button.dart';
 import 'package:stopat/widgets/tc_screen.dart';
@@ -51,14 +52,16 @@ class _SetupGameScreenState extends State<SetupGameScreen> {
         },
       ),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
+          const Spacer(),
           const DifficultySelector(),
           SizedBox(height: 32.w(context)),
           TCButton(
-            title: ls(LK.screen_home_btnCustom),
+            title: ls(LK.screen_setupGame_btnStart),
             onTap: _onStartTap,
           ),
+          const BottomSpacer(),
         ],
       ),
     );

@@ -15,6 +15,10 @@
             "btnClassic": "classic",
             "btnCustom": "custom"
         },
+        "setupGame": {
+            "difficulty": "difficulty",
+            "btnStart": "start"
+        },
         "game": {
             "goalDesc": "your goal"
         }

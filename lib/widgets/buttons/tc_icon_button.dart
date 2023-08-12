@@ -34,12 +34,14 @@ class TCIconButton extends StatelessWidget {
 
     return GestureDetector(
       onTap: props.onTap,
+      behavior: HitTestBehavior.translucent,
       child: SizedBox(
         height: height,
         width: height,
         child: Icon(
           props.icon,
           color: TCColors.of(context).iconButton,
+          
         ),
       ),
     );

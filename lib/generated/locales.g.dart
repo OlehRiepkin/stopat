@@ -12,6 +12,9 @@ abstract class  LocaleKeys {
   static const screen_home_btnClassic = 'screen.home.btnClassic';
   static const screen_home_btnCustom = 'screen.home.btnCustom';
   static const screen_home = 'screen.home';
+  static const screen_setupGame_difficulty = 'screen.setupGame.difficulty';
+  static const screen_setupGame_btnStart = 'screen.setupGame.btnStart';
+  static const screen_setupGame = 'screen.setupGame';
   static const screen_game_goalDesc = 'screen.game.goalDesc';
   static const screen_game = 'screen.game';
   static const screen = 'screen';

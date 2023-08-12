@@ -17,19 +17,19 @@ class StopwatchView extends ConsumerWidget {
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
         final value = ref.watch(stopwatchProvider);
 
-        return Column(
-          children: GameDifficulty.uiOrdered
-              .map(
-                (d) => Text(
-                  d.format(value),
-                  style: const TextStyle(
-                    fontFamily: 'Digital',
-                    fontSize: 68,
-                  ),
-                ),
-              )
-              .toList(),
-        );
+        // return Column(
+        //   children: GameDifficulty.uiOrdered
+        //       .map(
+        //         (d) => Text(
+        //           d.format(value),
+        //           style: const TextStyle(
+        //             fontFamily: 'Digital',
+        //             fontSize: 68,
+        //           ),
+        //         ),
+        //       )
+        //       .toList(),
+        // );
 
         return Text(
           difficulty.format(value),

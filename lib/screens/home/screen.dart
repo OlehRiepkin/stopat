@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stopat/screens/settings/screen.dart';
 import 'package:stopat/screens/setup_game.dart/screen.dart';
 import 'package:stopat/utils/localization.dart';
-import 'package:stopat/utils/scale_helper/flutter_scale_helper.dart';
+import 'package:stopat/widgets/bottom_spacer.dart';
 import 'package:stopat/widgets/buttons/tc_button.dart';
 import 'package:stopat/widgets/buttons/tc_icon_button.dart';
 import 'package:stopat/widgets/clock_lottie.dart';
@@ -32,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           const Spacer(),
@@ -52,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //   title: ls(LK.screen_home_btnCustom),
           //   onTap: _onCustomTap,
           // ),
-          SizedBox(height: 128.h(context)),
+          const BottomSpacer(),
         ],
       ),
     );
