@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stopat/utils/scale_helper/flutter_scale_helper.dart';
-import 'package:stopat/widgets/tc_frame.dart';
 import 'package:stopat/widgets/tc_screen_header.dart';
 
 class TCScreen extends StatelessWidget {

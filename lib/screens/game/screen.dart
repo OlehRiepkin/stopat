@@ -55,6 +55,6 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void _onCloseTap() {
-    Navigator.of(context).pop();
+    Navigator.of(context).popUntil((route) => route.isFirst);
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:stopat/screens/home/setup_game/modal.dart';
 import 'package:stopat/screens/settings/screen.dart';
+import 'package:stopat/screens/setup_game.dart/screen.dart';
 import 'package:stopat/utils/localization.dart';
 import 'package:stopat/utils/scale_helper/flutter_scale_helper.dart';
 import 'package:stopat/widgets/buttons/tc_button.dart';
@@ -30,26 +32,34 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         },
       ),
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TCButton(
-              title: ls(LK.screen_home_btnDaily),
-              onTap: _onDailyTap,
-            ),
-            SizedBox(height: 32.w(context)),
-            TCButton(
-              title: ls(LK.screen_home_btnClassic),
-              onTap: _onClassicTap,
-            ),
-            SizedBox(height: 32.w(context)),
-            TCButton(
-              title: ls(LK.screen_home_btnCustom),
-              onTap: _onCustomTap,
-            ),
-          ],
-        ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          const Spacer(),
+          Lottie.asset(
+            'assets/lottie/clock_anim_white.json',
+            fit: BoxFit.contain,
+            width: 180.w(context),
+            height: 180.w(context),
+          ),
+          const Spacer(),
+          TCButton(
+            title: ls(LK.screen_home_btnDaily),
+            onTap: _onDailyTap,
+          ),
+          SizedBox(height: 16.w(context)),
+          TCButton(
+            title: ls(LK.screen_home_btnClassic),
+            onTap: _onClassicTap,
+          ),
+          SizedBox(height: 16.w(context)),
+          TCButton(
+            title: ls(LK.screen_home_btnCustom),
+            onTap: _onCustomTap,
+          ),
+          SizedBox(height: 128.h(context)),
+        ],
       ),
     );
   }
@@ -61,9 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void _onDailyTap() {}
 
   void _onClassicTap() {
-    // GameScreen.show(context);
-
-    SetupGameModal.show(context);
+    SetupGameScreen.show(context);
   }
 
   void _onCustomTap() {}
