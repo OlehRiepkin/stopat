@@ -38,10 +38,17 @@ class TCIconButton extends StatelessWidget {
       child: SizedBox(
         height: height,
         width: height,
-        child: Icon(
-          props.icon,
-          color: TCColors.of(context).iconButton,
-          
+        child: FractionallySizedBox(
+          heightFactor: 0.7,
+          widthFactor: 0.7,
+          child: FittedBox(
+            fit: BoxFit.cover,
+            child: Icon(
+              props.icon,
+              color: TCColors.of(context).iconButton,
+              
+            ),
+          ),
         ),
       ),
     );
