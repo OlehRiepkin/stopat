@@ -33,11 +33,6 @@ class StopwatchStateNotifier extends Notifier<int> {
 
   void start() {
     _startTime = DateTime.now();
-    final difficulty = ref.read(gameSettingsProvider).value?.difficulty;
-    if (difficulty == null) {
-      return;
-    }
-
     _ticker = Ticker(
       (elapsed) {
         state = _startTime.add(elapsed).difference(_startTime).inMilliseconds;

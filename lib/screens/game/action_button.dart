@@ -15,7 +15,7 @@ class ActionButton extends ConsumerWidget {
     final colors = TCColors.of(context);
     final gameState = ref.watch(gameStateProvider);
 
-    final side = 100.w(context);
+    final side = 200.w(context);
 
     final ActionButtonModel actionButtonModel = switch (gameState) {
       GameState.readyToStart => ActionButtonModel(

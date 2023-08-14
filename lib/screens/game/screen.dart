@@ -40,32 +40,40 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
-    return TCScreen(
-      headerProps: TCScreenHeaderProps(
-        right: (context) {
-          return TCIconButton(
-            props: TCIconButtonProps.close(
-              onTap: _onCloseTap,
+    return WillPopScope(
+      onWillPop: () async {
+        _backToRoot();
+        return Future.value(false);
+      },
+      child: TCScreen(
+        headerProps: TCScreenHeaderProps(
+          right: (context) {
+            return TCIconButton(
+              props: TCIconButtonProps.close(
+                onTap: _backToRoot,
+              ),
+            );
+          },
+        ),
+        child: Column(
+          children: [
+            const GoalView(),
+            Padding(
+              padding: EdgeInsets.all(32.w(context)),
+              child: const StopwatchView(),
             ),
-          );
-        },
-      ),
-      child: Column(
-        children: [
-          const GoalView(),
-          Padding(
-            padding: EdgeInsets.all(32.w(context)),
-            child: const StopwatchView(),
-          ),
-          const Spacer(),
-          const ActionButton(),
-          const BottomSpacer(),
-        ],
+            const Spacer(),
+            const ActionButton(),
+            SizedBox(
+              height: 64.h(context),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  void _onCloseTap() {
+  void _backToRoot() {
     Navigator.of(context).popUntil((route) => route.isFirst);
   }
 }

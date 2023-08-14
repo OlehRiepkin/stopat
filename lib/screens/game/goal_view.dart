@@ -9,12 +9,8 @@ class GoalView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final settings = ref.watch(gameSettingsProvider);
-    final value = settings.value;
-    if (value == null) {
-      return const SizedBox.shrink();
-    }
-    final goalStr = value.difficulty.format(value.goal);
+    final gameSettings = ref.watch(gameSettingsProvider);
+    final goalStr = gameSettings.difficulty.format(gameSettings.goal);
     return Column(
       children: [
         Text(goalStr),

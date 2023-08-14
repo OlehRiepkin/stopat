@@ -12,7 +12,7 @@ class DifficultySelector extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final settings = ref.watch(gameSettingsProvider);
+    final gameSettings = ref.watch(gameSettingsProvider);
 
     final colors = TCColors.of(context);
 
@@ -48,7 +48,7 @@ class DifficultySelector extends ConsumerWidget {
             mainAxisSize: MainAxisSize.min,
             children: GameDifficulty.uiOrdered.map(
               (difficulty) {
-                final isActive = settings.value?.difficulty == difficulty;
+                final isActive = gameSettings.difficulty == difficulty;
                 return Touchable(
                   props: TouchableProps(
                     onTap: () {

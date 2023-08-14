@@ -1,44 +1,28 @@
 part of providers;
 
 final gameSettingsProvider =
-    AsyncNotifierProvider<GameSettingsState, GameSettings>(
-  GameSettingsState.new,
+    NotifierProvider<GameSettingsNotifier, GameSettings>(
+  GameSettingsNotifier.new,
 );
 
-class GameSettingsState extends AsyncNotifier<GameSettings> {
+class GameSettingsNotifier extends Notifier<GameSettings> {
   @override
-  FutureOr<GameSettings> build() {
-    return Future.value(
-      GameSettings(
-        goal: 3000,
-        difficulty: GameDifficulty.normal,
-      ),
+  GameSettings build() {
+    return GameSettings(
+      goal: 3000,
+      difficulty: GameDifficulty.normal,
     );
   }
 
-  Future<void> setGoal(int goal) async {
-    final currentValue = state.value;
-    if (currentValue == null) {
-      return;
-    }
-
-    state = AsyncValue.data(
-      currentValue.copyWith(
-        goal: goal,
-      ),
+  void setGoal(int goal) {
+    state = state.copyWith(
+      goal: goal,
     );
   }
 
-  Future<void> setDifficulty(GameDifficulty difficulty) async {
-    final currentValue = state.value;
-    if (currentValue == null) {
-      return;
-    }
-
-    state = AsyncValue.data(
-      currentValue.copyWith(
-        difficulty: difficulty,
-      ),
+  void setDifficulty(GameDifficulty difficulty) {
+    state = state.copyWith(
+      difficulty: difficulty,
     );
   }
 }

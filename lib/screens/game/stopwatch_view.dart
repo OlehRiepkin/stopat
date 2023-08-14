@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stopat/providers/providers.dart';
+import 'package:stopat/utils/scale_helper/flutter_scale_helper.dart';
 
 class StopwatchView extends ConsumerWidget {
   const StopwatchView({
@@ -8,10 +9,7 @@ class StopwatchView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final difficulty = ref.watch(gameSettingsProvider).value?.difficulty;
-    if (difficulty == null) {
-      return const SizedBox.shrink();
-    }
+    final gameSettings = ref.watch(gameSettingsProvider);
 
     return Consumer(
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
@@ -32,10 +30,10 @@ class StopwatchView extends ConsumerWidget {
         // );
 
         return Text(
-          difficulty.format(value),
-          style: const TextStyle(
+          gameSettings.difficulty.format(value),
+          style: TextStyle(
             fontFamily: 'Digital',
-            fontSize: 100,
+            fontSize: 100.w(context),
           ),
         );
       },
