@@ -7,27 +7,22 @@ class AllColors {
   static const black = Color(0xFF000000);
 
   static const darkPrimary = Color(0xFF00001e);
-  static const cyan = Color(0xFF00ffff);
-
-  static const c0 = Color(0xFF000066);
-  static const c1 = Color(0xFF001247);
-  static const c2 = Color(0xFFbfcfff);
-  static const c3 = Color(0xFF809fff);
+  static const cyan = Color(0x4c00FFFF);
 }
 
 class AppThemeData {
   static ThemeData light() {
     return ThemeData.light().copyWith(
       extensions: <ThemeExtension<dynamic>>[
-        const TCColors(
-          buttonText: AllColors.c0,
-          buttonBorder: AllColors.c2,
+        TCColors(
+          buttonText: AllColors.darkPrimary,
+          buttonBorder: AllColors.darkPrimary.withOpacity(0.5),
           buttonShadow: AllColors.cyan,
-          frame: AllColors.c1,
-          iconButton: AllColors.c0,
+          frame: Colors.red,
+          iconButton: AllColors.darkPrimary,
         ),
       ],
-      scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+      scaffoldBackgroundColor: AllColors.white,
     );
   }
 
@@ -38,7 +33,7 @@ class AppThemeData {
           buttonText: AllColors.white,
           buttonBorder: AllColors.white,
           buttonShadow: AllColors.cyan,
-          frame: AllColors.c3,
+          frame: Colors.red,
           iconButton: AllColors.white,
         ),
       ],

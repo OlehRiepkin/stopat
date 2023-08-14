@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stopat/screens/game/screen.dart';
-import 'package:stopat/screens/setup_game.dart/difficlty_selector.dart';
+import 'package:stopat/screens/setup_game.dart/difficulty_selector.dart';
 import 'package:stopat/utils/localization.dart';
 import 'package:stopat/utils/scale_helper/flutter_scale_helper.dart';
 import 'package:stopat/widgets/bottom_spacer.dart';

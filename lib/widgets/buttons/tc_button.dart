@@ -31,15 +31,11 @@ class TCButton extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color: TCColors.of(context).buttonBorder.withOpacity(0.9),
+                color: TCColors.of(context).buttonBorder,
               ),
-              borderRadius: BorderRadius.circular(6),
+              borderRadius: BorderRadius.circular(8),
               boxShadow: [
-                BoxShadow(
-                  color: TCColors.of(context).buttonShadow.withOpacity(0.2),
-                  blurRadius: 10,
-                  spreadRadius: 2,
-                ),                
+                TCShadow.cyanShadow(context),                
               ],
             ),
             child: Center(
