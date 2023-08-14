@@ -66,7 +66,7 @@ class ActionButton extends ConsumerWidget {
             child: Text(
               actionButtonModel.text,
               style: TextStyle(
-                color: colors.buttonText,
+                color: colors.text,
                 fontWeight: FontWeight.w700,
                 fontFamily: 'Raleway',
                 fontSize: 18.w(context),

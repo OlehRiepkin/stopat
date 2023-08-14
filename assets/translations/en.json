@@ -20,7 +20,7 @@
             "btnStart": "start"
         },
         "game": {
-            "goalDesc": "your goal",
+            "goalDesc": "stop at {goal} sec.",
             "cta": {
                 "start": "start",
                 "stop": "stop",

@@ -19,7 +19,7 @@ class GameStateNotifier extends Notifier<GameState> {
         _stop();
         break;
       case GameState.finished:
-        _reset();
+        reset();
         break;
     }
   }
@@ -32,7 +32,16 @@ class GameStateNotifier extends Notifier<GameState> {
     state = GameState.finished;
   }
 
-  void _reset() {
+  void reset({
+    bool delayed = false,
+  }) {
+    if (delayed) {
+      Future.delayed(const Duration(seconds: 1)).then((_) {
+        state = GameState.readyToStart;
+      });
+      return;
+    }
+
     state = GameState.readyToStart;
   }
 }

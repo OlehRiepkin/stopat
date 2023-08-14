@@ -16,6 +16,10 @@ class TCIconButtonProps {
     this.onTap,
   }) : icon = Icons.settings_outlined;
 
+  TCIconButtonProps.home({
+    this.onTap,
+  }) : icon = Icons.home_outlined;
+
   final IconData? icon;
   final VoidCallback? onTap;
 }

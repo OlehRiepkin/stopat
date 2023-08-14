@@ -19,7 +19,7 @@ class AppThemeData {
     return ThemeData.light().copyWith(
       extensions: <ThemeExtension<dynamic>>[
         TCColors(
-          buttonText: AllColors.darkPrimary,
+          text: AllColors.darkPrimary,
           buttonBorder: AllColors.darkPrimary.withOpacity(0.5),
           buttonShadow: AllColors.cyan,
           buttonStart: AllColors.green,
@@ -37,7 +37,7 @@ class AppThemeData {
     return ThemeData.dark().copyWith(
       extensions: <ThemeExtension<dynamic>>[
         const TCColors(
-          buttonText: AllColors.white,
+          text: AllColors.white,
           buttonBorder: AllColors.white,
           buttonShadow: AllColors.cyan,
           buttonStart: AllColors.green,

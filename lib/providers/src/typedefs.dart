@@ -8,6 +8,8 @@ typedef ProviderScope = riverpod.ProviderScope;
 typedef Consumer = riverpod.Consumer;
 typedef ConsumerWidget = riverpod.ConsumerWidget;
 typedef ConsumerStatefulWidget = riverpod.ConsumerStatefulWidget;
+typedef ConsumerState<T extends ConsumerStatefulWidget>
+    = riverpod.ConsumerState<T>;
 
 typedef WidgetRef = riverpod.WidgetRef;
 

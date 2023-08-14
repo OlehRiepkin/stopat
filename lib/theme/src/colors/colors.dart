@@ -3,7 +3,7 @@ part of theme;
 @immutable
 class TCColors extends ThemeExtension<TCColors> {
   const TCColors({
-    required this.buttonText,
+    required this.text,
     required this.buttonBorder,
     required this.buttonShadow,
     required this.buttonStart,
@@ -13,7 +13,7 @@ class TCColors extends ThemeExtension<TCColors> {
     required this.iconButton,
   });
 
-  final Color buttonText;
+  final Color text;
   final Color buttonBorder;
   final Color buttonShadow;
   final Color buttonStart;
@@ -40,7 +40,7 @@ class TCColors extends ThemeExtension<TCColors> {
       return this;
     }
     return TCColors(
-      buttonText: _tryLerp(buttonText, other.buttonText, t),
+      text: _tryLerp(text, other.text, t),
       buttonBorder: _tryLerp(buttonBorder, other.buttonBorder, t),
       buttonShadow: _tryLerp(buttonShadow, other.buttonShadow, t),
       buttonStart: _tryLerp(buttonStart, other.buttonStart, t),

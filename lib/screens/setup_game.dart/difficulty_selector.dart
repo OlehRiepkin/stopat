@@ -16,7 +16,7 @@ class DifficultySelector extends ConsumerWidget {
 
     final colors = TCColors.of(context);
 
-    final textColor = colors.buttonText;
+    final textColor = colors.text;
 
     final activeFontSize = 16.w(context);
     final inactiveFontSize = 16.w(context);

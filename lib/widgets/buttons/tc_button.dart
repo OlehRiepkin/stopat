@@ -42,7 +42,7 @@ class TCButton extends StatelessWidget {
               child: Text(
                 title,
                 style: TextStyle(
-                  color: TCColors.of(context).buttonText,
+                  color: TCColors.of(context).text,
                   fontWeight: FontWeight.w700,
                   fontFamily: 'Raleway',
                   fontSize: 16.w(context),
