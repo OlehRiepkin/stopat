@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stopat/screens/game/action_button.dart';
 import 'package:stopat/screens/game/goal_view.dart';
 import 'package:stopat/screens/game/stopwatch_view.dart';
+import 'package:stopat/utils/scale_helper/flutter_scale_helper.dart';
+import 'package:stopat/widgets/bottom_spacer.dart';
 import 'package:stopat/widgets/buttons/tc_icon_button.dart';
 import 'package:stopat/widgets/tc_screen.dart';
 import 'package:stopat/widgets/tc_screen_header.dart';
@@ -48,17 +50,16 @@ class _GameScreenState extends State<GameScreen> {
           );
         },
       ),
-      child: const Column(
+      child: Column(
         children: [
-          GoalView(),
+          const GoalView(),
           Padding(
-            padding: EdgeInsets.all(32.0),
-            child: StopwatchView(),
+            padding: EdgeInsets.all(32.w(context)),
+            child: const StopwatchView(),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 64.0),
-            child: ActionButton(),
-          ),
+          const Spacer(),
+          const ActionButton(),
+          const BottomSpacer(),
         ],
       ),
     );

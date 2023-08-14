@@ -8,6 +8,8 @@ class AllColors {
 
   static const darkPrimary = Color(0xFF00001e);
   static const cyan = Color(0x4c00FFFF);
+  static const green = Color(0xFF7ED454);
+  static const red = Color(0xFF7ED454);
 }
 
 class AppThemeData {
@@ -18,6 +20,8 @@ class AppThemeData {
           buttonText: AllColors.darkPrimary,
           buttonBorder: AllColors.darkPrimary.withOpacity(0.5),
           buttonShadow: AllColors.cyan,
+          buttonStart: AllColors.green,
+          buttonStop: AllColors.red,
           frame: Colors.red,
           iconButton: AllColors.darkPrimary,
         ),
@@ -33,6 +37,8 @@ class AppThemeData {
           buttonText: AllColors.white,
           buttonBorder: AllColors.white,
           buttonShadow: AllColors.cyan,
+          buttonStart: AllColors.green,
+          buttonStop: AllColors.red,
           frame: Colors.red,
           iconButton: AllColors.white,
         ),

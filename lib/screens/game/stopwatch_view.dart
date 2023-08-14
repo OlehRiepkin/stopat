@@ -35,7 +35,7 @@ class StopwatchView extends ConsumerWidget {
           difficulty.format(value),
           style: const TextStyle(
             fontFamily: 'Digital',
-            fontSize: 68,
+            fontSize: 100,
           ),
         );
       },

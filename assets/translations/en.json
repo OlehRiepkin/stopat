@@ -20,7 +20,12 @@
             "btnStart": "start"
         },
         "game": {
-            "goalDesc": "your goal"
+            "goalDesc": "your goal",
+            "cta": {
+                "start": "start",
+                "stop": "stop",
+                "reset": "reset"
+            }
         }
     }
 }
