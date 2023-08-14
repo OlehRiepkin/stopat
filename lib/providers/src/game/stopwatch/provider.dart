@@ -10,7 +10,7 @@ class StopwatchState extends Notifier<int> {
   late DateTime start;
   late DateTime end;
 
-  int get difference => end.difference(start).inMilliseconds;
+  int get _difference => end.difference(start).inMilliseconds;
 
   @override
   int build() {
@@ -41,6 +41,6 @@ class StopwatchState extends Notifier<int> {
     _ticker?.dispose();
     _ticker = null;
 
-    state = difference;
+    state = _difference;
   }
 }

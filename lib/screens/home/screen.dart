@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stopat/screens/game/screen.dart';
 import 'package:stopat/screens/settings/screen.dart';
 import 'package:stopat/screens/setup_game.dart/screen.dart';
 import 'package:stopat/utils/localization.dart';
@@ -65,8 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void _onDailyTap() {}
 
   void _onClassicTap() {
-    // SetupGameScreen.show(context);
-    GameScreen.show(context);
+    SetupGameScreen.show(context);
   }
 
   void _onCustomTap() {}
