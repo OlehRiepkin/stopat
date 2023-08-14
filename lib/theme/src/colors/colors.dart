@@ -8,6 +8,7 @@ class TCColors extends ThemeExtension<TCColors> {
     required this.buttonShadow,
     required this.buttonStart,
     required this.buttonStop,
+    required this.buttonReset,
     required this.frame,
     required this.iconButton,
   });
@@ -17,6 +18,7 @@ class TCColors extends ThemeExtension<TCColors> {
   final Color buttonShadow;
   final Color buttonStart;
   final Color buttonStop;
+  final Color buttonReset;
   final Color frame;
   final Color iconButton;
 
@@ -43,6 +45,7 @@ class TCColors extends ThemeExtension<TCColors> {
       buttonShadow: _tryLerp(buttonShadow, other.buttonShadow, t),
       buttonStart: _tryLerp(buttonStart, other.buttonStart, t),
       buttonStop: _tryLerp(buttonStop, other.buttonStop, t),
+      buttonReset: _tryLerp(buttonReset, other.buttonReset, t),
       frame: _tryLerp(frame, other.frame, t),
       iconButton: _tryLerp(iconButton, other.iconButton, t),
     );

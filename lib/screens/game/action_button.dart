@@ -12,23 +12,51 @@ class ActionButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(stopwatchProvider);
-    final title = ls(LK.screen_game_cta_start);
+    final colors = TCColors.of(context);
+    final gameState = ref.watch(gameStateProvider);
+
     final side = 100.w(context);
+
+    final ActionButtonModel actionButtonModel = switch (gameState) {
+      GameState.readyToStart => ActionButtonModel(
+          text: ls(LK.screen_game_cta_start),
+          shadowColor: colors.buttonStart,
+          onTap: () {
+            ref.read(gameStateProvider.notifier).toggleState();
+          },
+        ),
+      GameState.active => ActionButtonModel(
+          text: ls(LK.screen_game_cta_stop),
+          shadowColor: colors.buttonStop,
+          onTap: () {
+            ref.read(gameStateProvider.notifier).toggleState();
+          },
+        ),
+      GameState.finished => ActionButtonModel(
+          text: ls(LK.screen_game_cta_reset),
+          shadowColor: colors.buttonReset,
+          onTap: () {
+            ref.read(gameStateProvider.notifier).toggleState();
+          },
+        ),
+    };
 
     return Touchable(
       props: TouchableProps(
-        child: Container(
+        onTap: actionButtonModel.onTap,
+        onTapDown: actionButtonModel.onTapDown,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
           height: side,
           width: side,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
-                color: TCColors.of(context).buttonBorder,
-              ),
+              color: colors.buttonBorder,
+            ),
             boxShadow: [
               BoxShadow(
-                color: TCColors.of(context).buttonStart,
+                color: actionButtonModel.shadowColor,
                 blurRadius: 10,
                 spreadRadius: 2,
               ),
@@ -36,20 +64,31 @@ class ActionButton extends ConsumerWidget {
           ),
           child: Center(
             child: Text(
-              title,
+              actionButtonModel.text,
               style: TextStyle(
-                  color: TCColors.of(context).buttonText,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'Raleway',
-                  fontSize: 18.w(context),
-                ),
+                color: colors.buttonText,
+                fontWeight: FontWeight.w700,
+                fontFamily: 'Raleway',
+                fontSize: 18.w(context),
+              ),
             ),
           ),
         ),
-        onTap: () {
-          ref.read(stopwatchProvider.notifier).toggleTimer();
-        },
       ),
     );
   }
+}
+
+class ActionButtonModel {
+  ActionButtonModel({
+    required this.text,
+    required this.shadowColor,
+    this.onTap,
+    this.onTapDown,
+  });
+
+  final String text;
+  final Color shadowColor;
+  final VoidCallback? onTap;
+  final GestureTapDownCallback? onTapDown;
 }

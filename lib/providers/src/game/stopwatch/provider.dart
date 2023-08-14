@@ -1,28 +1,38 @@
 part of providers;
 
-final stopwatchProvider = NotifierProvider<StopwatchState, int>(
-  StopwatchState.new,
+final stopwatchProvider = NotifierProvider<StopwatchStateNotifier, int>(
+  StopwatchStateNotifier.new,
 );
 
-class StopwatchState extends Notifier<int> {
+class StopwatchStateNotifier extends Notifier<int> {
   Ticker? _ticker;
 
-  late DateTime start;
-  late DateTime end;
+  late DateTime _startTime;
+  late DateTime _endTime;
 
-  int get _difference => end.difference(start).inMilliseconds;
+  int get _difference => _endTime.difference(_startTime).inMilliseconds;
 
   @override
   int build() {
+    ref.listen(gameStateProvider, (previous, next) {
+      switch (next) {
+        case GameState.readyToStart:
+          reset();
+          break;
+        case GameState.active:
+          start();
+          break;
+        case GameState.finished:
+          stop();
+          break;
+      }
+    });
+
     return 0;
   }
 
-  void toggleTimer() {
-    _ticker == null ? _start() : _stop();
-  }
-
-  void _start() {
-    start = DateTime.now();
+  void start() {
+    _startTime = DateTime.now();
     final difficulty = ref.read(gameSettingsProvider).value?.difficulty;
     if (difficulty == null) {
       return;
@@ -30,17 +40,26 @@ class StopwatchState extends Notifier<int> {
 
     _ticker = Ticker(
       (elapsed) {
-        state = start.add(elapsed).difference(start).inMilliseconds;
+        state = _startTime.add(elapsed).difference(_startTime).inMilliseconds;
       },
     )..start();
   }
 
-  void _stop() {
-    end = DateTime.now();
+  void stop() {
+    _endTime = DateTime.now();
+    _disposeTicker();
+
+    state = _difference;
+  }
+
+  void reset() {
+    state = 0;
+    _disposeTicker();
+  }
+
+  void _disposeTicker() {
     _ticker?.stop();
     _ticker?.dispose();
     _ticker = null;
-
-    state = _difference;
   }
 }
