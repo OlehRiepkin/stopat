@@ -15,17 +15,12 @@ class StopwatchStateNotifier extends Notifier<int> {
   @override
   int build() {
     ref.listen(gameStateProvider, (previous, next) {
-      switch (next) {
-        case GameState.readyToStart:
-          reset();
-          break;
-        case GameState.active:
-          start();
-          break;
-        case GameState.finished:
-          stop();
-          break;
-      }
+      GameState.handler(
+        next,
+        onReadyToStart: (_) => reset(),
+        onActive: (_) => start(),
+        onFinished: (_) => stop(),
+      );
     });
 
     return 0;

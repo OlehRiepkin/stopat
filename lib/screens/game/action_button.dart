@@ -15,31 +15,32 @@ class ActionButton extends ConsumerWidget {
     final colors = TCColors.of(context);
     final gameState = ref.watch(gameStateProvider);
 
-    final side = 200.w(context);
+    final side = 200.w(context, minScale: 0);
 
-    final ActionButtonModel actionButtonModel = switch (gameState) {
-      GameState.readyToStart => ActionButtonModel(
-          text: ls(LK.screen_game_cta_start),
-          shadowColor: colors.buttonStart,
-          onTap: () {
-            ref.read(gameStateProvider.notifier).toggleState();
-          },
-        ),
-      GameState.active => ActionButtonModel(
-          text: ls(LK.screen_game_cta_stop),
-          shadowColor: colors.buttonStop,
-          onTap: () {
-            ref.read(gameStateProvider.notifier).toggleState();
-          },
-        ),
-      GameState.finished => ActionButtonModel(
-          text: ls(LK.screen_game_cta_reset),
-          shadowColor: colors.buttonReset,
-          onTap: () {
-            ref.read(gameStateProvider.notifier).toggleState();
-          },
-        ),
-    };
+    final actionButtonModel = GameState.handler(
+      gameState,
+      onReadyToStart: (_) => ActionButtonModel(
+        text: ls(LK.screen_game_cta_start),
+        shadowColor: colors.buttonStart,
+        onTap: () {
+          ref.read(gameStateProvider.notifier).toggleState();
+        },
+      ),
+      onActive: (_) => ActionButtonModel(
+        text: ls(LK.screen_game_cta_stop),
+        shadowColor: colors.buttonStop,
+        onTap: () {
+          ref.read(gameStateProvider.notifier).toggleState();
+        },
+      ),
+      onFinished: (_) => ActionButtonModel(
+        text: ls(LK.screen_game_cta_reset),
+        shadowColor: colors.buttonReset,
+        onTap: () {
+          ref.read(gameStateProvider.notifier).toggleState();
+        },
+      ),
+    );
 
     return Touchable(
       props: TouchableProps(

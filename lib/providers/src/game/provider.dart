@@ -7,29 +7,24 @@ final gameStateProvider = NotifierProvider<GameStateNotifier, GameState>(
 class GameStateNotifier extends Notifier<GameState> {
   @override
   GameState build() {
-    return GameState.readyToStart;
+    return GameStateReadyToStart();
   }
 
   void toggleState() {
-    switch (state) {
-      case GameState.readyToStart:
-        _start();
-        break;
-      case GameState.active:
-        _stop();
-        break;
-      case GameState.finished:
-        reset();
-        break;
-    }
+    GameState.handler(
+      state,
+      onReadyToStart: (_) => _start(),
+      onActive: (_) => _stop(),
+      onFinished: (_) => reset(),
+    );
   }
 
   void _start() {
-    state = GameState.active;
+    state = GameStateActive();
   }
 
   void _stop() {
-    state = GameState.finished;
+    state = GameStateFinished();
   }
 
   void reset({
@@ -37,11 +32,11 @@ class GameStateNotifier extends Notifier<GameState> {
   }) {
     if (delayed) {
       Future.delayed(const Duration(seconds: 1)).then((_) {
-        state = GameState.readyToStart;
+        state = GameStateReadyToStart();
       });
       return;
     }
 
-    state = GameState.readyToStart;
+    state = GameStateReadyToStart();
   }
 }
