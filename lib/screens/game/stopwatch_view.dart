@@ -13,7 +13,7 @@ class StopwatchView extends ConsumerWidget {
 
     return Consumer(
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
-        final value = ref.watch(stopwatchProvider);
+        final gameState = ref.watch(gameStateProvider);
 
         // return Column(
         //   children: GameDifficulty.uiOrdered
@@ -30,7 +30,7 @@ class StopwatchView extends ConsumerWidget {
         // );
 
         return Text(
-          gameSettings.difficulty.format(value),
+          gameSettings.difficulty.format(gameState.stopwatchValue),
           style: TextStyle(
             fontFamily: 'Digital',
             fontSize: 100.w(context),

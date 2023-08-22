@@ -1,6 +1,8 @@
 part of providers;
 
 abstract class GameState {
+  int get stopwatchValue;
+
   static T handler<T>(
     GameState state, {
     required T Function(GameStateReadyToStart state) onReadyToStart,
@@ -9,7 +11,6 @@ abstract class GameState {
   }) {
     if (state is GameStateReadyToStart) {
       return onReadyToStart(state);
-      
     }
 
     if (state is GameStateActive) {
@@ -24,8 +25,28 @@ abstract class GameState {
   }
 }
 
-class GameStateReadyToStart extends GameState {}
+class GameStateReadyToStart extends GameState {
+  @override
+  int get stopwatchValue => 0;
+}
 
-class GameStateActive extends GameState {}
+class GameStateActive extends GameState {
+  GameStateActive({
+    required this.stopwatchValue,
+  });
 
-class GameStateFinished extends GameState {}
+  @override
+  final int stopwatchValue;
+}
+
+class GameStateFinished extends GameState {
+  GameStateFinished({
+    required this.stopwatchValue,
+    required this.isWin,
+  });
+
+  @override
+  final int stopwatchValue;
+
+  final bool isWin;
+}

@@ -38,8 +38,24 @@ class GameScreen extends ConsumerStatefulWidget {
 }
 
 class _GameScreenState extends ConsumerState<GameScreen> {
+  void _handleFinishGame(GameStateFinished state) {
+    final text = state.isWin ? 'You win!' : 'Lose!';
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(text),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    ref.listen(gameStateProvider, (previous, next) {
+      if (next is GameStateFinished) {
+        _handleFinishGame(next);
+      }
+    });
+
     return WillPopScope(
       onWillPop: () async {
         _backToRoot();

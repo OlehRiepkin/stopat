@@ -14,9 +14,8 @@ import 'package:stopat/utils/helpers/enum.dart';
 import 'package:stopat/utils/localization.dart';
 
 part 'src/app_theme/provider.dart';
-part 'src/game/provider.dart';
-part 'src/game/game_state.dart';
-part 'src/game/stopwatch/provider.dart';
+part 'src/game/main/provider.dart';
+part 'src/game/main/game_state.dart';
 part 'src/game/settings/provider.dart';
 part 'src/game/settings/model.dart';
 part 'src/game/settings/difficulty.dart';

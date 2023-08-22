@@ -9,8 +9,8 @@ class GameSettingsNotifier extends Notifier<GameSettings> {
   @override
   GameSettings build() {
     return GameSettings(
-      goal: 10000,
-      difficulty: GameDifficulty.normal,
+      goal: 3000,
+      difficulty: GameDifficulty.easy,
     );
   }
 
